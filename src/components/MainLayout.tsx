@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState } from '@/store/store';
 import { Outlet } from 'react-router-dom';
@@ -13,27 +13,66 @@ import SunIcon from '@/assets/svgIcon/Sun'
 
 export default function MainLayout() {
   const [open, setOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   
   const dispatch = useDispatch();
 
   const currentLang = useSelector((state: RootState) => state.language.currentLanguage);
-  const curentTheme = useSelector((state: RootState) => state.views.theme);
+  const currentTheme = useSelector((state: RootState) => state.views.theme);
+
+  // 檢測屏幕尺寸
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      // 手機版默認關閉側邊欄
+      if (mobile) {
+        setOpen(false);
+      }
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
 
   const toggleTheme = () =>
-    dispatch(setTheme(curentTheme === 'dark' ? 'light' : 'dark'));
+    dispatch(setTheme(currentTheme === 'dark' ? 'light' : 'dark'));
   
   const toggleLanguage = () => {
     const newLang = currentLang === 'zh' ? 'en' : 'zh';
     dispatch(setLanguage(newLang));
   };
 
+  const handleDrawerToggle = () => {
+    setOpen(!open);
+  };
+
+  const handleOverlayClick = () => {
+    // 手機版點擊遮罩關閉側邊欄
+    if (isMobile && open) {
+      setOpen(false);
+    }
+  };
+
   return (
-    <div className={layoutStyles.layout}>
+    <div className={`${layoutStyles.layout} ${isMobile && open ? layoutStyles.drawerOpen : ''}`}>
       <div className={layoutStyles.headerWrapper}>
-        <button className={layoutStyles.drawerButton} onClick={() => setOpen(!open)}>
+        <button className={layoutStyles.drawerButton} onClick={handleDrawerToggle}>
           ≡
         </button>
       </div>
+      
+      {/* 手機版背景遮罩 */}
+      {isMobile && open && (
+        <div 
+          className={layoutStyles.overlay} 
+          onClick={handleOverlayClick}
+        />
+      )}
       
       <aside className={`${layoutStyles.drawerWapperOpen} ${!open ? layoutStyles.drawerWapperClosed : ''}`}>
         <div 
@@ -45,21 +84,21 @@ export default function MainLayout() {
               <EarthIcon/>
             </button>
             <button onClick={toggleTheme} className={layoutStyles.nonStyleButton} title="切換主題">
-              {curentTheme === 'dark' ? <SunIcon /> : <MoonIcon />}
+              {currentTheme === 'dark' ? <SunIcon /> : <MoonIcon />}
             </button>
           </div>
         </div>
       </aside>
 
-      {/* 佔位符 */}
-      <div className={`${layoutStyles.placeHolder} ${!open ? layoutStyles.placeHolderClosed : ''}`}></div>
+      {/* 電腦版佔位符 */}
+      {!isMobile && (
+        <div className={`${layoutStyles.placeHolder} ${!open ? layoutStyles.placeHolderClosed : ''}`}></div>
+      )}
       
       {/* 主要內容 */}
       <main className={layoutStyles.mainContent}>
         <Outlet />
       </main>
-
-      {/* 移除所有底部面板相關的 JSX */}
     </div>
   );
 }

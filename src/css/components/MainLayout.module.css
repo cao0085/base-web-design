@@ -102,5 +102,54 @@
 }
 
 .placeHolderClosed {
-  width: 0px
+  width: 0px;
+}
+
+/* 背景遮罩樣式 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  transition: opacity 0.3s ease;
+}
+
+/* 手機版響應式設計 */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  
+  .drawerWapperOpen {
+    /* 在手機版使用 z-index 讓側邊欄浮在上面 */
+    z-index: 999;
+    /* 添加陰影效果 */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .drawerWapperClosed {
+    /* 手機版關閉時完全隱藏，不佔用空間 */
+    width: 0px;
+    transform: translateX(-100%);
+  }
+  
+  /* 手機版不需要 placeholder */
+  .placeHolder {
+    width: 0;
+    display: none;
+  }
+  
+  .placeHolderClosed {
+    width: 0;
+    display: none;
+  }
+  
+  .mainContent {
+    /* 手機版主內容佔滿整個寬度 */
+    width: 100%;
+    margin-left: 0;
+  }
 }

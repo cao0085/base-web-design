@@ -3,6 +3,4 @@
   background-color: var(--color-background);
   color: var(--color-foreground);
   padding: var(--spacing-4);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
 }

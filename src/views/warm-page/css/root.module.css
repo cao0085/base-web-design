@@ -7,9 +7,9 @@
   /* Primary Colors */
   --color-primary: #6366F1;
   --color-secondary: #10B981;
-  --color-foreground: #D92514;
-  --color-background: #F5F4E6;
-  --color-surface: #EDECD8;
+  --color-foreground: #d92514;
+  --color-background: #f5f4e6;
+  --color-surface: #edecd8;
   --color-surface-alt: #374151;
   
   /* Status Colors */
@@ -22,7 +22,8 @@
   --color-neutral-100: #F5F5F5;
   --color-neutral-300: #374151;
   --color-neutral-500: #9CA3AF;
-  --color-neutral-900: #F9FAFB;
+  --color-neutral-700: #0e0f10;
+  --color-neutral-900: #000000;
   
   /* ===== Typography System (REM-based) ===== */
   
