@@ -1,6 +1,19 @@
 
-.mainContainer {
+main {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  padding: var(--spacing-4);
+  padding: 0;
+  position: relative;
+}
+
+.hamburgerPosition {
+  position: fixed; /* 或 absolute，看你的需求 */
+  top: var(--spacing-5); /* 20px */
+  right: var(--spacing-5); /* 20px */
+  z-index: var(--z-max); /* 9999，確保在彈出面板之上 */
+}
+
+.s1 {
+  height: 1080px;
+  background: var(--color-surface-alt)
 }

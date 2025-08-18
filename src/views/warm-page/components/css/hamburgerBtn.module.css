@@ -1,0 +1,76 @@
+.hamburgerBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  transform: scale(1.5);
+}
+
+.hamburgerBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hamburgerBtn:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-neutral-900);;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* 開啟狀態的動畫 */
+.hamburgerBtn.active .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburgerBtn.active .line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburgerBtn.active .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* 替代動畫樣式 - 箭頭效果 */
+.hamburgerBtn.arrowStyle.active .line:nth-child(1) {
+  transform: translateY(8px) rotate(135deg);
+}
+
+.hamburgerBtn.arrowStyle.active .line:nth-child(2) {
+  transform: scaleX(0.8) translateX(-4px);
+}
+
+.hamburgerBtn.arrowStyle.active .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-135deg);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .hamburgerBtn {
+    width: 44px;
+    height: 44px;
+    transform: scale(1); 
+  }
+  
+  .line {
+    width: 26px;
+    height: 3px;
+  }
+}
