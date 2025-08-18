@@ -2,7 +2,7 @@
 import style from './css/page.module.css'
 import rootTheme from './css/root.module.css'
 
-export default function BrandPage() {
+export default function ExamplePage() {
 
 
 
