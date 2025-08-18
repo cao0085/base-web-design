@@ -7,10 +7,9 @@
 
 .headerWrapper {
   width: 0;
-  position: relative; /* 讓內部元素可以做相對定位 */
+  position: relative;
   margin-top: 10px;
 }
-
 
 .drawerButton {
   position: fixed;
@@ -27,9 +26,9 @@
 }
 
 .titleName {
-  margin-top: 70px; /* 或 padding-top 設定與 button 保持距離 */
+  margin-top: 70px;
   font-size: 60px;
-  transform: rotate(180deg); /* 讓文字上下顛倒，達成反向效果 */
+  transform: rotate(180deg);
   writing-mode: vertical-rl; 
   color: #333;
 }
@@ -44,6 +43,7 @@
   overflow: hidden;
   transition: width 0.3s ease;
 }
+
 .drawerWapperClosed {
   width: 0px;
 }
@@ -92,10 +92,8 @@
 .mainContent {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   flex: 1;
   transition: margin 0.3s ease;
-  /* margin: 0 auto; */
 }
 
 .placeHolder {
@@ -105,97 +103,4 @@
 
 .placeHolderClosed {
   width: 0px
-}
-
-
-/* 行動尺寸才顯示 */
-@media (max-width: 960px) {
-  .headerWrapper,
-  .drawerWapperOpen,
-  .drawerWapperClosed,
-  .placeHolder {
-    display: none !important;
-  }
-  .bottomBar { display: flex; }
-}
-
-@media (max-width: 960px) {
-  .drawer.closed {
-    transition: width 0.3s ease;
-    background-color: transparent;
-    height: 0;
-  }
-}
-
-/* 只在手機尺寸以下啟用這兩個元件 */
-.bottomSheet,
-.bottomToggle,
-.bottomToggleRow { display: none; }
-
-@media (max-width: 960px) {
-  /* ===== 隱藏桌機組件 ===== */
-  .headerWrapper,
-  .drawerWapperOpen,
-  .drawerWapperClosed,
-  .placeHolder { display: none !important; }
-
-  /* ===== Bottom-Sheet ===== */
-  .bottomSheet {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 35vh;                 /* 展開後高度 */
-    background: var(--surface, #fff);
-    box-shadow: 0 -4px 12px rgba(0,0,0,.06);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;             /* 子內容捲動 */
-    transition: transform .4s ease;
-    z-index: 900;
-  }
-  .bottomSheetOpen  { transform: translateY(0); }
-  .bottomSheetClosed{ transform: translateY(100%); }
-
-  /* 內容捲動 */
-  .bottomSheet > * { overflow-y: auto; }
-
-  .bottomActions {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    /* padding: .75rem 0 1rem; */
-  }
-
-  .bottomToggleRow {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 64px;
-    background: var(--surface, #ffffff);
-    border-top: 1px solid rgba(0,0,0,.1);
-    display: flex;
-    justify-content: center;   /* 讓內容水平置中 */
-    align-items: center;
-    z-index: 901;              /* 高於 bottomSheet */
-  }
-
-  /* 2) 中央按鈕（箭頭） */
-  .bottomToggleBtn {
-    width: 48px;
-    height: 48px;
-    background: var(--surface, #fff);
-    color: #fff;
-    border: none;
-    font-size: 28px;
-    line-height: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  /* ===== 內容下邊距，避免被 Toggle 按鈕蓋到 ===== */
-  .mainContent { padding-bottom: 80px; }
 }

@@ -10,7 +10,7 @@ import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/sebastian-codeBase">
+    <BrowserRouter basename="/base-web-design">
       <Provider store={store}>
         <App />
       </Provider>

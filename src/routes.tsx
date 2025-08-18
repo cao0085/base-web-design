@@ -4,6 +4,7 @@ import MainLayout from '@/components/MainLayout'
 import Home       from '@/views'            // ← 首頁
 import Category1  from '@/views/category_1'
 import Category2  from '@/views/category_2'
+import DesignPreviewPanel from '@/views/warm-page/css/design-preview';
 
 export const routes: RouteObject[] = [
 
@@ -17,6 +18,7 @@ export const routes: RouteObject[] = [
       // 其他子頁
       { path: 'category_1', element: <Category1 /> },
       { path: 'category_2', element: <Category2 /> },
+      { path: 'warm-page-DesignPreviewPanel', element: <DesignPreviewPanel /> },
 
       // 未匹配 → 回首頁（或改成 NotFound）
       { path: '*', element: <Navigate to="" replace /> },
