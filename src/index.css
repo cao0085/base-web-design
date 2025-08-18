@@ -1,0 +1,54 @@
+:root {
+  font-family: Futura, Impact, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: clamp(14px, 0.9vw + 0.5rem, 18px);
+
+  color-scheme: light dark;
+  color: var(--text);
+  background-color: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 260px;
+  min-height: 100vh;
+}
+
+/* ---------- 響應式容器 ---------- */
+.container {
+  width: 100%;
+  /* max-width: 100%; */
+}
+
+button {
+  font-family: Futura;
+  color: var(--text);
+  background-color: transparent;
+  border: none;
+  cursor: pointer; /* 讓滑鼠變成手型 */
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* break-point */
+/* --bp-sm: 30rem;
+--bp-md: 48rem;
+--bp-lg: 64rem;
+--bp-xl: 80rem; */
+
+/* @media (min-width: 30rem) { .container { max-width: 46rem; } }
+@media (min-width: 48rem) { .container { max-width: 60rem; } }
+@media (min-width: 76rem) { .container { max-width: 76rem; } }
+@media (min-width: 90rem) { .container { max-width: 100%; } } */
+/* 依此類推… */
+
+@media (max-width: 30rem) { .hide-sm { display: none !important; } }
+@media (min-width: 48rem) { .hide-md-up { display: none !important; } }
