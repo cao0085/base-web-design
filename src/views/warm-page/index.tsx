@@ -11,8 +11,6 @@ export default function BrandPage() {
 
     const handleMenuToggle = (isOpen: boolean) => {
         setIsMenuOpen(isOpen);
-        console.log('選單狀態:', isOpen);
-        // 在這裡處理選單開關邏輯
     };
 
     return (

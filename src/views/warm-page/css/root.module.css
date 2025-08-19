@@ -29,7 +29,7 @@
   
   /* Font Family */
   --font-primary: "Pressio", system-ui, -apple-system, sans-serif;
-  --font-secondary: "Poppins", system-ui, -apple-system, sans-serif;
+  --font-secondary: "DM Serif Text", system-ui, -apple-system, sans-serif;
   --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
   
   /* Font Size (REM-based) */
@@ -41,6 +41,11 @@
   --font-size-2xl: 1.5rem;   /* 24px */
   --font-size-3xl: 1.875rem; /* 30px */
   --font-size-4xl: 2.25rem;  /* 36px */
+  --font-size-5xl: 3rem;     /* 48px */
+  --font-size-6xl: 3.75rem;  /* 60px */
+  --font-size-7xl: 4.5rem;   /* 72px */
+  --font-size-8xl: 6rem;     /* 96px */
+  --font-size-9xl: 8rem;     /* 128px */
   
   /* Font Weight */
   --font-weight-light: 300;

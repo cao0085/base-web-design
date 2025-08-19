@@ -20,7 +20,7 @@ export const routes: RouteObject[] = [
       { path: 'category_1', element: <Category1 /> },
       { path: 'category_2', element: <Category2 /> },
       { path: 'BrandPage', element: <BrandPage /> },
-      { path: 'warm-page-DesignPreviewPanel', element: <DesignPreviewPanel /> },
+      { path: 'BrandPage/css', element: <DesignPreviewPanel /> },
 
       // 未匹配 → 回首頁（或改成 NotFound）
       { path: '*', element: <Navigate to="" replace /> },

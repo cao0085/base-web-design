@@ -31,9 +31,9 @@
   /* ===== Typography System (REM-based) ===== */
   
   /* Font Family */
-  --font-primary: "Pressio", system-ui, -apple-system, sans-serif;
-  --font-secondary: "Poppins", system-ui, -apple-system, sans-serif;
-  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  --font-primary: "Arimo", system-ui, -apple-system, sans-serif;
+  --font-secondary: "DM Serif Text", system-ui, -apple-system, sans-serif;
+  --font-mono: "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
   
   /* Font Size (REM-based) */
   --font-size-xs: 0.75rem;   /* 12px */

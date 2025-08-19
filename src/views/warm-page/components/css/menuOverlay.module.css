@@ -15,37 +15,47 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
 }
 
-.closeBtn {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 3rem;
-  cursor: pointer;
+.leftSection {
+  flex: 0 0 46%;
+  background-color: rgb(170, 109, 109);
+}
+.rightSection {
+  flex: 1; /* 填滿剩下 */
+  height: 100%;
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--spacing-16);
+  gap: var(--spacing-20);
 }
 
 .navigation {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  width: 100%;
 }
 
-.navigation a {
-  color: white;
+/* 簡化版本：直接讓 a 標籤當容器 */
+.navLink {
+  display: block;
   text-decoration: none;
-  font-size: 2rem;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-5xl);
+  text-align: center;
+  color: var(--color-neutral-900);
   transition: opacity 0.3s ease;
+  cursor: pointer;
+  /* 加上 padding 讓點擊區域更舒適 */
+  padding: 1rem 0;
 }
 
-.navigation a:hover {
-  opacity: 0.7;
+.navLink:hover {
+  background-color: var(--color-surface);
+}
+
+.info {
+  flex: 1;
+  background-color: var(--color-surface);
 }
