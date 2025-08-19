@@ -1,0 +1,39 @@
+.navPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  opacity: 0.7;
+  transform: translateX(5px);
+}
+
+.activeLink {
+  text-decoration: none;
+  color: #007bff; /* 或你的主色調 */
+}
+
+.navLink h2,
+.activeLink h2 {
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navLink:hover h2 {
+  background-color: #f8f9fa;
+}
+
+.activeLink h2 {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}

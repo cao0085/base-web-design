@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from './css/menuOverlay.module.css';
 
 interface MenuItem {
@@ -7,6 +7,12 @@ interface MenuItem {
   href: string;
   imageUrl: string;
   description?: string;
+}
+
+interface MenuOverlayProps {
+  isOpen: boolean;
+  isClosing: boolean;
+  onClose: () => void;
 }
 
 const menuItems: MenuItem[] = [
@@ -40,19 +46,37 @@ const menuItems: MenuItem[] = [
   }
 ];
 
-
-
-
-export default function MenuOverlay() {
-
+export default function MenuOverlay({ isOpen, isClosing, onClose }: MenuOverlayProps) {
+  const [isVisible, setIsVisible] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+  // 處理進場動畫
+  useEffect(() => {
+    if (isOpen && !isClosing) {
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, isClosing]);
+
+  // 處理退場動畫
+  useEffect(() => {
+    if (isClosing) {
+      setIsVisible(false);
+    }
+  }, [isClosing]);
 
   const currentImage = hoveredItem 
     ? menuItems.find(item => item.id === hoveredItem)?.imageUrl 
     : null;
 
   return (
-    <div className={style.overlay}>
+    <div 
+      className={`${style.overlay} ${isVisible ? style.show : ''}`}
+      onClick={onClose}
+    >
       <div className={style.menuContent}>
         <div className={style.leftSection}>
           {currentImage ? (
@@ -68,7 +92,7 @@ export default function MenuOverlay() {
           )}
         </div>
         <div className={style.rightSection}>
-          <nav className={style.navigation}>
+          <nav className={`${style.navigation} ${isVisible ? style.contentShow : ''}`}>
             {menuItems.map((item) => (
               <a 
                 key={item.id}
@@ -76,13 +100,23 @@ export default function MenuOverlay() {
                 onMouseEnter={() => setHoveredItem(item.id)}
                 onMouseLeave={() => setHoveredItem(null)}
                 className={style.navLink}
+                onClick={onClose}
               >
                 {item.label}
               </a>
             ))}
           </nav>
           <div className={style.info}>
-            test
+            <div>Philippe Starck</div>
+            <div>design@starck.com</div>
+            <div className={style.infoTag}>
+              <span>+886 920-200-100</span>
+              <div className={style.locationGroup}>
+                <span className={style.country}>Taiwan</span>
+                <span className={style.separator}>|</span>
+                <span className={style.since}>Since 2014</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

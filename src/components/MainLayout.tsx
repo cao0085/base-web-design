@@ -10,6 +10,9 @@ import layoutStyles from '@/css/components/MainLayout.module.css';
 import EarthIcon from '@/assets/svgIcon/Earth'
 import MoonIcon from '@/assets/svgIcon/Moon'
 import SunIcon from '@/assets/svgIcon/Sun'
+import WrapperIcon from '@/assets/menu.svg';
+import WrapperCloseIcon from '@/assets/wrapper_close.svg';
+
 
 export default function MainLayout() {
   const [open, setOpen] = useState(true);
@@ -62,7 +65,12 @@ export default function MainLayout() {
     <div className={`${layoutStyles.layout} ${isMobile && open ? layoutStyles.drawerOpen : ''}`}>
       <div className={layoutStyles.headerWrapper}>
         <button className={layoutStyles.drawerButton} onClick={handleDrawerToggle}>
-          ≡
+          <img 
+            src={open ? WrapperIcon : WrapperCloseIcon} 
+            alt="Toggle drawer" 
+            width="36" 
+            height="36" 
+          />
         </button>
       </div>
       

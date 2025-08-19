@@ -1,5 +1,6 @@
 
 main {
+  font-family: var(--font-primary);
   background-color: var(--color-background);
   color: var(--color-foreground);
   padding: 0;
@@ -7,7 +8,7 @@ main {
 }
 
 .hamburgerPosition {
-  position: fixed; /* 或 absolute，看你的需求 */
+  position: fixed;
   top: var(--spacing-5); /* 20px */
   right: var(--spacing-5); /* 20px */
   z-index: var(--z-max); /* 9999，確保在彈出面板之上 */
@@ -16,4 +17,9 @@ main {
 .s1 {
   height: 1080px;
   background: var(--color-surface-alt)
+}
+
+.brandingQuotes {
+  display: flex;
+  font-size: var(--font-size-5xl);
 }
