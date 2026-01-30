@@ -1,69 +1,63 @@
-# React + TypeScript + Vite
+# Base Web Design
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal practice project for building a modular React 18 SPA boilerplate. The goal is to create a reusable foundation with a clean layered architecture, so I can skip repetitive setup and jump straight into development on future projects.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18** + **TypeScript**
+- **Vite** - Fast build tool with HMR
+- **React Router DOM v6** - Client-side routing
+- **Redux Toolkit** - State management
+- **i18next** - Internationalization (EN/ZH)
+- **Axios** - HTTP client
+- **CSS Modules** - Scoped styling
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── api/              # API layer (Axios config)
+├── assets/           # Static assets & SVG icons
+├── components/       # Shared components (MainLayout, NavPanel)
+├── constants/        # Environment variables
+├── css/              # Global styles & theme
+├── i18n/             # i18next configuration
+├── store/            # Redux store & slices
+│   └── slices/       # Redux slices (language, player, user, views)
+├── views/            # Page components
+│   ├── BrandPage/
+│   ├── ExampleDesign-page/
+│   ├── category_1/
+│   └── category_2/
+├── routes.tsx        # Route configuration
+├── App.tsx           # App entry
+└── main.tsx          # React entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Install dependencies
+npm install
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
 ```
+
+## Features
+
+- Nested routing with MainLayout wrapper
+- Dark/Light theme support
+- Multi-language support (English/Chinese)
+- CSS Modules for component-scoped styles
+- Design token system for consistent styling
+- SVG icon components
